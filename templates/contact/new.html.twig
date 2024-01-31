@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+{% block title %}ASC - Nous contacter
+{% endblock %}
+
+{% block body %}
+	<h1>Formulaire de contact</h1>
+
+	{% for message in app.flashes('succes') %}
+		<div class="alert alert-succes mt-4">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+	{{ include('contact/_form.html.twig') }}
+
+{% endblock %}
