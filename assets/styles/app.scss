@@ -1,3 +1,26 @@
 @import "~bootstrap/scss/bootstrap";
 
+:root {
+    --background: #fdfdfd;
+    --color: #e9c600;
+    --font-color-black: #1D1D1D;
+    --font-family-nav:'DM Serif Display', serif;
+    --font-family-body:'DM Serif Display', serif;
+  }
 
+  * {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    background-color: var(--background);
+  }
+
+  //navbar ///
+
+  .logo_nav {
+    width: 4rem;
+    height: 4rem;
+  }
