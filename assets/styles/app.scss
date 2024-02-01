@@ -1,26 +1,52 @@
 @import "~bootstrap/scss/bootstrap";
 
 :root {
-    --background: #fdfdfd;
-    --color: #e9c600;
-    --font-color-black: #1D1D1D;
-    --font-family-nav:'DM Serif Display', serif;
-    --font-family-body:'DM Serif Display', serif;
-  }
+  --background: #cccccc;
+  --color: #b49508cc;
+  --font-color-black: #1D1D1D;
+  --font-family-nav: 'DM Serif Display', serif;
+  --font-family-body: 'DM Serif Display', serif;
+}
 
-  * {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    box-sizing: border-box;
-    text-decoration: none;
-    scroll-behavior: smooth;
-    background-color: var(--background);
-  }
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  background-color: var(--background);
+  color: var(--font-color-black);
+}
 
-  //navbar ///
+// GENERAL
 
-  .logo_nav {
-    width: 4rem;
-    height: 4rem;
-  }
+.base-css {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+// NAVBAR ///
+
+.logo_nav {
+  width: 4rem;
+  height: 4rem;
+}
+
+// CARD HOME
+
+.card {
+  border: none;
+  box-shadow: #1D1D1D;
+}
+
+.card-body {
+  margin: 3rem;
+  border-radius: 2rem;
+  
+}

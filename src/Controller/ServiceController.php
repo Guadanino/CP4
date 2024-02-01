@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/service')]
 class ServiceController extends AbstractController
@@ -23,6 +24,7 @@ class ServiceController extends AbstractController
     }
 
     #[Route('/new', name: 'app_service_new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $service = new Service();
@@ -43,6 +45,7 @@ class ServiceController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_service_show', methods: ['GET'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function show(Service $service): Response
     {
         return $this->render('service/show.html.twig', [
@@ -50,6 +53,7 @@ class ServiceController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}/edit', name: 'app_service_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Service $service, EntityManagerInterface $entityManager): Response
     {
@@ -68,6 +72,7 @@ class ServiceController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{id}', name: 'app_service_delete', methods: ['POST'])]
     public function delete(Request $request, Service $service, EntityManagerInterface $entityManager): Response
     {
