@@ -3,10 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Home;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class HomeCrudController extends AbstractCrudController
 {
@@ -15,11 +15,19 @@ class HomeCrudController extends AbstractCrudController
         return Home::class;
     }
 
+    public function configureCrud(Crud $crud): Crud
+    {
+        return $crud
+            ->setEntityLabelInPlural('Accueil')
+            ->setPageTitle("index", "ASC - Administration de l'accueil");
+    }
 
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('message'),
+            IdField::new('id')
+                ->hideOnForm(),
+            TextEditorField::new('message'),
         ];
     }
 }
